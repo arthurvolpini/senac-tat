@@ -1,0 +1,172 @@
+Terminal: Bash/Shell Script
+$ = usuário comun;
+# = super usuário
+=====================================================
+Comandos de manipulação de diretórios
+ls = listar arquivos ou diretório 
+ls -lh = listar arquivos de forma humana
+ls -lha = listar todos arquivos de forma humana incluindo arquivos ocultos
+arquivo cor azul: diretório 
+arquivo cor branca: arquivo texto
+azul claro: Link simbólico (não existe/atalho)
+marca texto verde: perigo
+arquivo que inicia com ponto (.) quer dizer que é um arquivo oculto
+cd / = mudar de diretórios 
+cd ~ = diretório pessoal
+cd - = voltar uma vex
+cd .. = descer um nível
+pwd = qual diretótio você está
+history = histórico de comandos
+! = executar um comando da linha de referência (comandos antigos)
+mkdir = comando pra criar diretórios
+mkdir -v = verboso (mostra de forma mais detalhado)
+'nome' = criar diretório com espaço
+ajuda de comandos = --help
+mkdir -pv = cria um diretório e infos dentro deste diretório. (mkdir -pv 'nome pasta'/'nome da info' 'nome diretorio/'nome da info') 
+rm = remover arquivos e diretório
+-f = forçar
+-v = verboso
+-R = recurssivo
+
+1  apt
+    2  sudo
+    3  color 10
+    4  color2
+    5  sudo apt
+    6  sudo apt up
+    7  sudo apt upgrade
+    8  sudo apt update
+    9  sudo apt up
+   10  check
+   11  sudo apt check
+   12  sudo apt update
+   13  sudo apt upgrade
+   14  sudo apt fuk
+   15  sudo apt full update
+   16  sudo apt full upgrade
+   17  sudo apt dist-upgrade 
+   18  sudo apt autoremove
+   19  sudo apt autoclean
+   20  sudo apt auto
+   21  sudo apt autoclean
+   22  sudo apt clean
+   23  sudo apt update
+   24  /usr/bin/hollywood 
+   25  sudo apt clean
+   26  history
+   27  color2
+   28  $25
+   29  sudo apt update
+   30  history
+   31  sudo app 
+   32  sudo apt install hollywood
+   33  s
+   34  sudo apt install hollywood 
+   35  sudo apt install hollywood
+   36  hollywood 
+   37  sudo apt install bill gates
+   38  sudo apt install gta
+   39  install fifa
+   40  sudo poweroff
+   41  sudo apt update
+   42  sudo apt upgrade
+   43  sudo apt full  update
+   44  sudo apt full  upgrade
+   45  sudo apt update
+   46  sudo apt upgrade
+   47  sudo apt update
+   48  sudo apt install
+   49  sudo apt install kazam
+   50  sudo apt install minecraft
+   51  sudo apt install telegram
+   52  sudo apt install scribus
+   53  sudo apt install git
+   54  sudo apt install git vim python2 python3 
+   55  sudo apt install wps office
+   56  sudo apt install wps ofice
+   57  sudo apt install wpsoffice
+   58  sudo apt install wps office
+   59  sudo apt install kdenlive
+   60  sudo apt update
+   61  sudo apt upgrade
+   62  id
+   63  sudo -i
+   64  ls
+   65  lsls
+   66  ls
+   67  ls -lh
+   68  ls -l
+   69  ls -lh
+   70  ls -la
+   71  ls -lha
+   72  cd
+   73  hl cd
+   74  cd pasta musica
+   75  cd/
+   76  cd /
+   77  exit
+   78  cd /
+   79  ls
+   80  ls -lh
+   81  ls -lha
+   82  pwd
+   83  cd
+   84  cd ls
+   85  lh cd
+   86  lh -cd
+   87  cd /
+   88  cd -
+   89  cd ~
+   90  cd Documentos/
+   91  cd /
+   92  cd home/senac/Documentos/
+   93  cd /
+   94  cd ~/Documentos/
+   95  cd /
+   96  cd ..
+   97  cd ~/Documentos/
+   98  cd ..
+   99  cd /
+  100  history
+  101  cd home/senac/Documentos/
+  102  pwd
+  103  mkdir senac
+  104  ls
+  105  mkdir senac
+  106  ls
+  107  mkdir teste
+  108  ls
+  109  mkdir -v tatuape
+  110  ls
+  111  cd senac/
+  112  mkdir -v Arthur Garcia Volpini
+  113  ls
+  114  mkdir -v SENAC Tatuapé
+  115  ls
+  116  mkdir -v 'SENAC Tatuapé' 
+  117  mkdir -v "tat" info tst est amd
+  118  ls
+  119  mkdir -v tat "info tst est amd"
+  120  " tat" info
+  121  mkdir -v tat (info)
+  122  mkdir -v tat '(info)'
+  123  mkdir -v tat " info amd"
+  124  mkdir -v (tat)
+  125  mkdir -p tat/amd/infpo
+  126  mkdir -p tat/amd/tst/info/est
+  127  mkdir -p tat/'amd'tst'info'est'
+  128  ls
+  129  cd Documentos/senac
+  130  mkdir -p tat/ amd/ info/ est/
+  131  mkdir --help
+  132  man mkdia
+  133  man mkadir
+  134  mkdir -pv tat/info/amd/est
+  135  mkdir -pv tat/info tat/amd tat/est tat/tst
+  136  rm Arthur/
+  137  rm -fv Arthur/
+  138  rm -R Arthur/
+  139  rm -Rfv Garcia/ Volpini/
+  140  exit
+  141  history
+
