@@ -1,0 +1,22 @@
+Terminal: ctrl + alt + T
+cd: mudar de diretorio
+ls: listar arquivos e diretorio
+mkdir: criar diretório
+pwd: listar o diretório atual
+rm: remover arquivos ou diretórios
+echo: imprimir na tela o conteúdo
+cat: imprime o conteúdo do arquivo
+touch: muda data e hora do arquivo 
+comando "-n": numera as linhas
+cp: copiar arquivos ou diretório
+comando "-v": detalha o processo que você está fazendo
+mv: mover arquivo ou diretório (renomear)
+tac: lista o arquivo(do fim até o início)
+less: visualizador de arquivos
+head: lista o início do arquivo
+tail: lista o final do arquivo
+cat -n (arquivo) | head -n200 | tail -n100| less (usado para ler arquivos e linhas específicas)
+---------------------------------------------------------------------
+>: redirecionar saida
+>>: redirecionar saida adicionando conteúdo
+|: redirecionar a saida d eum comando com a entrada de outro comando
