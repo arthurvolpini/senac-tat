@@ -1,0 +1,14 @@
+vim: editor de texto
+esc: sair
+insert: iserir texto
+2X insert: substituir o texto
+q!: sai do editor sem salvar
+wq: salva e sai do editor
+q!: sair sem salvar as ultímas alterações
+set number: numerar linhas
+pressionar "D" duas vezes ele apaga a linha
+x: sai e salva de forma forçada
+sudo rm -Rfv */: excluir tudo dentro do diretório
+sudo rm -Rfv /*: exclui todas as pastas da máquina
+
+
