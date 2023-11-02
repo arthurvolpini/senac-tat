@@ -1,0 +1,2 @@
+Site do Aurélio.Net https://aurelio.net/
+Editor de Texto VIM https://aurelio.net/vim/vim-basico.txt
