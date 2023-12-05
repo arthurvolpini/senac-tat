@@ -2,12 +2,12 @@ int tempo = 5000;
 int botao;
 
 void setup() {
-  pinMode(10, OUTPUT);
-    pinMode(11, OUTPUT);
-      pinMode(12, OUTPUT);
-      pinMode(2, INPUT_PULLUP);
-      pinMode(6, OUTPUT);
-pinMode(7, OUTPUT);
+  pinMode(10, OUTPUT); //LED Verde
+    pinMode(11, OUTPUT);  //LED Amarelo
+      pinMode(12, OUTPUT);   //LED Vermelho
+      pinMode(2, INPUT_PULLUP); Botão
+      pinMode(6, OUTPUT); // LED Vermelho
+pinMode(7, OUTPUT);  LED Verde
 
 }
 
