@@ -1,0 +1,18 @@
+enable
+    !entrando no modo Exec Priv
+    configure terminal
+       !alterando o nome do switch
+       hostname sw-01
+       service password-encryption
+       service timestamps log datetime msec
+       no ip domain-lookup
+       enable secret 123@senac
+       banner motd #AVISO: acesso autorizado somente a funcionarios#
+       username admin password 123@senac
+       line console 0
+        login local
+        logging synchronous 
+        password 123@senac
+        exec-timeout 5 30
+        end
+copy running-config  startup-config         
