@@ -1,0 +1,53 @@
+!Configuração Base do Router 1941
+enable
+clock set 20:14:00 06 Feb 2024
+Configure Terminal
+    hostname rt-01
+    service  password-encryption
+    service timestamps log datetime msec
+    service timestamps debug datetime msec
+    no ip domain-lookup
+    banner motd #LGPD - SENAC Tatuape#
+    security passwords min-length 6
+    enable secret 123@senac
+    username admin secret 123@senac
+    username senac privilege 15 secret 123@senac
+    ip domain-name senac.br
+    crypto key generate rsa general-keys modulus 1024
+    ip ssh version 2
+    ip ssh time-out 60
+    ip ssh authentication-retries 2
+    login block-for 120 attempts 2 within 60   
+    line console 0
+        login local
+        password 123@senac
+        logging synchronous
+        exec-timeout 5 30
+        exit
+    line vty 0 4
+        login local
+        password 123@senac 
+        logging synchronous
+        exec-timeout 5 30
+        transport input ssh
+        end
+write
+
+=========================================================================================================================================================================
+
+enable 
+    configure terminal
+        interface gigabitEthernet 0/0
+        description Interface de Gateway
+        ip address 192.168.1.254 255.255.255.0
+        no shutdown
+        end
+Write
+
+!Comandos de verificação
+show running-config
+show ip interface brief
+
+!acesso remoto via ssh
+ssh -l admin 192.168.1.254
+    
