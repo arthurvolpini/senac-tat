@@ -1,0 +1,256 @@
+!Configuração do Primeiro Switch do Lado Esquerdo
+!entrando no modo enable
+enable
+    !entrando no modo Exec Priv
+    configure terminal
+        !alterando o nome do switch
+        hostname sw-03
+        !habilitando o serviço da criptografia de senha
+        service password-encryption
+        !habilitando o serviço de log com data e hora
+        service timestamps log datetime msec
+        !desabilitando a resolução de nomes de domínio
+        no ip domain-lookup
+        !habilitando a senha no modo enable
+        enable secret 123@senac
+        !habilitando o baner da mensagem do dia
+        banner motd #LGPD - SENAC Tatuape#
+        !criando o usuário admin dos switch
+        username admin password 123@senac
+        !configurando o domínio do SSH
+        ip domain-name senac.br
+        !habilitando o acesso remoto SSH
+        crypto key generate rsa general-keys modulus 1024
+        !habilitando a versão 2 do SSH
+        ip ssh version 2
+        !configurando o tempo de inatividade do SSH
+        ip ssh time-out 60
+        !configurando a quantidade de autenticação simultânea do SSH
+        ip ssh authentication-retries 2
+        !acessando a linha de console
+        line console 0
+            !habilitando o login local de usuário
+            login local
+            !habilitando o sincronismo de log
+            logging synchronous 
+            !habilitando a senha password do console
+            password 123@senac
+            !habilitando o tempo de inatividade do console
+            exec-timeout 5 30
+            !saindo do console
+            exit
+        !acessando as linhas virtuais
+        line vty 0 4
+            !habilitando o login local de usuário
+            login local
+            !habilitando o sincronismo de log
+            logging synchronous 
+            !habilitando a senha password do console
+            password 123@senac
+            !habilitando o tempo de inatividade do console
+            exec-timeout 5 30
+            !habilitando a transporte de entrada SSH
+            transport input ssh
+            !saindo do console
+            exit
+        !configuranção do Gateway padrão
+        ip default-gateway 192.168.100.254
+        !configurando a Interface SVI
+        interface vlan 1
+            !configurando a descrição da Interface
+            description Interface de Gerenciamento SVI
+            !configurando o endereço IP da SVI
+            ip address 192.168.100.250 255.255.255.0
+            !iniciando a interface SVI
+            no shutdown
+            !saindo de todos os modos
+            end
+    !salvando as informações da memória RAM para a NVRAM
+    copy running-config startup-config
+
+    !verificando as informações do da memório RAM
+    show running-config
+    show ip interface brief
+==================================================================================
+
+!Configuração do Segundo Switch do Lado Direito
+!entrando no modo enable
+enable
+    !entrando no modo Exec Priv
+    configure terminal
+        !alterando o nome do switch
+        hostname sw-04
+        !habilitando o serviço da criptografia de senha
+        service password-encryption
+        !habilitando o serviço de log com data e hora
+        service timestamps log datetime msec
+        !desabilitando a resolução de nomes de domínio
+        no ip domain-lookup
+        !habilitando a senha no modo enable
+        enable secret 123@senac
+        !habilitando o baner da mensagem do dia
+        banner motd #LGPD - SENAC Tatuape#
+        !criando o usuário admin dos switch
+        username admin password 123@senac
+        !configurando o domínio do SSH
+        ip domain-name senac.br
+        !habilitando o acesso remoto SSH
+        crypto key generate rsa general-keys modulus 1024
+        !habilitando a versão 2 do SSH
+        ip ssh version 2
+        !configurando o tempo de inatividade do SSH
+        ip ssh time-out 60
+        !configurando a quantidade de autenticação simultânea do SSH
+        ip ssh authentication-retries 2
+        !acessando a linha de console
+        line console 0
+            !habilitando o login local de usuário
+            login local
+            !habilitando o sincronismo de log
+            logging synchronous 
+            !habilitando a senha password do console
+            password 123@senac
+            !habilitando o tempo de inatividade do console
+            exec-timeout 5 30
+            !saindo do console
+            exit
+        !acessando as linhas virtuais
+        line vty 0 4
+            !habilitando o login local de usuário
+            login local
+            !habilitando o sincronismo de log
+            logging synchronous 
+            !habilitando a senha password do console
+            password 123@senac
+            !habilitando o tempo de inatividade do console
+            exec-timeout 5 30
+            !habilitando a transporte de entrada SSH
+            transport input ssh
+            !saindo do console
+            exit
+        !configuranção do Gateway padrão
+        ip default-gateway 192.168.100.254
+        !configurando a Interface SVI
+        interface vlan 1
+            !configurando a descrição da Interface
+            description Interface de Gerenciamento SVI
+            !configurando o endereço IP da SVI
+            ip address 192.168.100.251 255.255.255.0
+            !iniciando a interface SVI
+            no shutdown
+            !saindo de todos os modos
+            end
+    !salvando as informações da memória RAM para a NVRAM
+    copy running-config startup-config
+
+    !verificando as informações do da memório RAM
+    show running-config
+    show ip interface brief
+=============================================================
+
+!Configuração das VLAN´s e Portas Trunks do Switch do Lado Esquerdo 
+!entrando no modo enable
+enable
+    !entrando no modo Exec Priv
+    configure terminal
+        !configuração das Portas Trunks
+        interface range gigabitEthernet 0/1 - 2
+            !descrição das interfaces de Trunks
+            description Interface de Trunk
+            !alterando o modo de switch das interfaces para Trunk
+            switchport mode trunk
+            !saindo das Interfaces de Trunk
+            exit
+        !criando as VLAN´s locais
+        vlan 10
+            !configurando o nome da VLAN
+            name senac
+        vlan 20
+            !configurando o nome da VLAN
+            name sesc
+            !saindo das configurações de VLAN
+            exit
+        !configurando a Interface da VLAN 10 SENAC
+        interface fastEthernet 0/1
+            !descrição da Interface VLAN SENAC
+            description VLAN SENAC
+            !alterando o modo de Switch da Interface
+            switchport mode access
+            !setando a VLAN 10 na Interface
+            switchport access vlan 10
+            !saindo da Interface
+            exit
+        interface fastEthernet 0/2
+            !descrição da Interface VLAN SESC
+            description VLAN SESC
+            !alterando o modo de Switch da Interface
+            switchport mode access
+            !setando a VLAN 20 na Interface
+            switchport access vlan 20
+            !saindo de todos os modos
+            end
+    !salvando as informações da memória RAM para a NVRAM
+    copy running-config startup-config
+
+    !verificando as informações do da memório RAM
+    show running-config
+    show ip interface brief
+
+=============================================================
+
+!Configuração das VLAN´s e Portas Trunks do Switch do Lado Direito 
+!entrando no modo enable
+enable
+    !entrando no modo Exec Priv
+    configure terminal
+        !configuração das Portas Trunks
+        interface range gigabitEthernet 0/1 - 2
+            !descrição das interfaces de Trunks
+            description Interface de Trunk
+            !alterando o modo de switch das interfaces para Trunk
+            switchport mode trunk
+            !saindo das Interfaces de Trunk
+            exit
+        !criando as VLAN´s locais
+        vlan 10
+            !configurando o nome da VLAN
+            name senac
+        vlan 20
+            !configurando o nome da VLAN
+            name sesc
+            !saindo das configurações de VLAN
+            exit
+        !configurando a Interface da VLAN 10 SENAC
+        interface fastEthernet 0/1
+            !descrição da Interface VLAN SENAC
+            description VLAN SENAC
+            !alterando o modo de Switch da Interface
+            switchport mode access
+            !setando a VLAN 10 na Interface
+            switchport access vlan 10
+            !saindo da Interface
+            exit
+        interface fastEthernet 0/2
+            !descrição da Interface VLAN SESC
+            description VLAN SESC
+            !alterando o modo de Switch da Interface
+            switchport mode access
+            !setando a VLAN 20 na Interface
+            switchport access vlan 20
+            !saindo de todos os modos
+            end
+    !salvando as informações da memória RAM para a NVRAM
+    copy running-config startup-config
+
+    !verificando as informações do da memório RAM
+    show running-config
+    show vlan brief
+    show interface trunk
+    show ip interface brief
+
+================================================================
+
+!Configuração das Interfaces do Router 1941
+enable
+    configure terminal
+        interface gigabitEthernet 0/0
