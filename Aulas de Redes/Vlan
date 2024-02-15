@@ -1,0 +1,51 @@
+intComados da Aula:
+SW> enable
+SW#conf t
+
+SW# conf t
+SW(config)# hostname SENAC
+SENAC(config)# 
+…
+
+SW# conf t
+SW(config)# vlan 2
+SW(config-vlan)#name NOMEdaVLAN
+
+…
+
+SW(config-vlan)#end ou SW(config-vlan)# “CTRL+Z” ou SW(config-vlan)# exit
+
+…
+
+SW# Show Vlan Brief
+
+…
+
+SW(config)#interface f0/1
+SW(config-if)#switchport access vlan2
+^
+…
+
+SW# Show RUN
+
+SW#WR
+
+-----
+SW(config)#interface range fast 0/1-10
+SW(config-if)#switchport access vlan 35
+-----
+
+
+SW(config)#interface f0/20
+SW(config-if)#switchport mode trunk
+
+SW-A(config)#int range gigabitEthernet 0/1-2
+SW-A(config-if-range)#channel-group 1 mode active
+
+
+SW-B(config)#int range gigabitEthernet 0/1-2
+SW-B(config-if-range)#channel-group 1 mode passive
+....
+show etherchannel
+show interfaces etherchannel
+
