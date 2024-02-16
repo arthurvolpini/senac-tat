@@ -254,3 +254,20 @@ enable
 enable
     configure terminal
         interface gigabitEthernet 0/0
+rt-02>enable 
+rt-02#conf t
+rt-02(config)#interface gigabitEthernet 0/0
+rt-02(config-if)#description Interface Gateway de VLAN
+rt-02(config-if)#no shutdown 
+*Mar 01, 00:04:16.044: %LINK-5-CHANGED: Interface GigabitEthernet0/0, changed state to up
+*Mar 01, 00:04:16.044: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/0, changed state to up
+rt-02(config-if)#exit
+rt-02(config)#interface gigabitEthernet 0/0.10
+*Mar 01, 00:06:14.066: %LINK-5-CHANGED: Interface GigabitEthernet0/0.10, changed state to up
+*Mar 01, 00:06:14.066: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/0.10, changed state to up
+rt-02(config-subif)#encapsulation dot1Q 10
+rt-02(config-subif)#description Interface de gateway da VLAN-10
+rt-02(config-subif)#ip address 192.168.10.254 255.255.255.0
+rt-02(config-subif)#no shutdown 
+
+
