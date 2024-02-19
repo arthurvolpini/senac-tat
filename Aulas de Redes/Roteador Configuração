@@ -1,1 +1,25 @@
 
+enable
+    configure terminal
+        hostname (estado)
+        interface f0/0
+               ip address 192.168.30.1 255.255.255.0
+            no shutdown
+            exit
+        interface s0/1
+            description Porta WAN que liga MG a RJ
+            ip address 30.0.0.2 255.0.0.0
+           
+	    no shutdown
+            clock rate 250000
+            bandwidth 256
+            exit
+        router rip
+            network 192.168.30.0
+            network 13.0.0.0exi 
+            end
+
+
+
+
+
